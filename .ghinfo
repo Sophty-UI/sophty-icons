@@ -1,0 +1,23 @@
+{
+  "name": "@sophty-ui/icons",
+  "version": "0.3.0",
+  "description": "Sophty UI SVG Icons",
+  "keywords": [
+    "icons",
+    "react",
+    "sophty",
+    "svg",
+    "ui"
+  ],
+  "repo": "Sophty-UI/sophty-icons",
+  "type": "utils",
+  "links": {
+    "homepage": "https://github.com/Sophty-UI/sophty-icons#readme",
+    "git": "https://github.com/Sophty-UI/sophty-icons",
+    "npm": "https://www.npmjs.com/package/@sophty-ui/icons"
+  },
+  "files": {
+    "banner": "media/banner.svg",
+    "logo": "media/logo.svg"
+  }
+}

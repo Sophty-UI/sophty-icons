@@ -1,0 +1,84 @@
+{
+  "name": "@sophty-ui/icons",
+  "version": "0.3.0",
+  "description": "Sophty UI SVG Icons",
+  "license": "MIT",
+  "homepage": "https://github.com/Sophty-UI/sophty-icons#readme",
+  "author": {
+    "name": "Daniil Ryazanov",
+    "email": "kein@tagproject.ru"
+  },
+  "keywords": [
+    "icons",
+    "react",
+    "sophty",
+    "svg",
+    "ui"
+  ],
+  "bugs": "https://github.com/Sophty-UI/sophty-icons/issues",
+  "type": "module",
+  "exports": {
+    "./Icon": "./lib/components/Icon.js",
+    "./*": "./lib/components/__generated__/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sophty-UI/sophty-icons.git"
+  },
+  "engines": {
+    "node": "^14.13.1 || >=16.0.0"
+  },
+  "scripts": {
+    "build": "npm-run-all build:prepare build:extract build:generate build:ts",
+    "build:extract": "node --experimental-specifier-resolution=node node_modules/.bin/figma-portal extract -d src/icons -p GitHub -f sophty -c .figma.icons.yml",
+    "build:generate": "node --experimental-specifier-resolution=node --loader ts-node/esm ./src/scripts/build.ts",
+    "build:prepare": "rimraf src/icons src/components/__generated__",
+    "build:ts": "rimraf lib && tsc --extendedDiagnostics",
+    "generate": "npm-run-all generate:*",
+    "generate:changelog": "node --experimental-specifier-resolution=node node_modules/.bin/changelog generate --bump",
+    "generate:ghinfo": "node --experimental-specifier-resolution=node node_modules/.bin/ghinfo generate -d media -t utils",
+    "generate:media": "node --experimental-specifier-resolution=node node_modules/.bin/figma-portal extract -d media -f sophty -p GitHub",
+    "lint": "npm-run-all lint:*",
+    "lint:eslint": "eslint \"src/**\" --ext .ts",
+    "lint:spell": "cspell -c .vscode/cspell.json --no-summary \"**/*.{js,ts,tsx,md,yml,json}\"",
+    "prepare": "npm-run-all prepare:*",
+    "prepare:config": "node --experimental-specifier-resolution=node node_modules/.bin/icons-shared-config",
+    "prepare:docs": "node --experimental-specifier-resolution=node node_modules/.bin/docs-shared-config",
+    "prepare:husky": "husky install",
+    "prepare:vscode": "node --experimental-specifier-resolution=node node_modules/.bin/vscode-shared-config",
+    "release": "npm-run-all prepare build lint generate"
+  },
+  "devDependencies": {
+    "@sophty-ui/icons-shared-config": "^1.0.4",
+    "@tagproject/docs-shared-config": "^1.0.1",
+    "@tagproject/vscode-shared-config": "^1.2.2",
+    "@types/react": "^17.0.38",
+    "@types/svg-parser": "^2.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "camelcase": "^6.3.0",
+    "changelog-guru": "4.0.2",
+    "cspell": "^5.18.0",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^26.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-optimize-regex": "^1.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "figma-portal": "^0.11.0",
+    "ghinfo": "^3.0.3",
+    "husky": "^7.0.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "svg-parser": "^2.0.4",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
