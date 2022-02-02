@@ -1,6 +1,6 @@
 {
   "name": "@sophty-ui/icons",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Sophty UI SVG Icons",
   "license": "MIT",
   "homepage": "https://github.com/Sophty-UI/sophty-icons#readme",
@@ -49,7 +49,7 @@
     "release": "npm-run-all prepare build lint generate"
   },
   "devDependencies": {
-    "@sophty-ui/icons-shared-config": "^1.0.4",
+    "@sophty-ui/icons-shared-config": "^1.0.5",
     "@tagproject/docs-shared-config": "^1.0.1",
     "@tagproject/vscode-shared-config": "^1.2.2",
     "@types/react": "^17.0.38",
