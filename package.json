@@ -49,7 +49,7 @@
     "release": "npm-run-all prepare build lint generate"
   },
   "devDependencies": {
-    "@sophty-ui/icons-shared-config": "^1.0.2",
+    "@sophty-ui/icons-shared-config": "^1.0.3",
     "@tagproject/docs-shared-config": "^1.0.1",
     "@tagproject/vscode-shared-config": "^1.2.2",
     "@types/react": "^17.0.38",
@@ -68,7 +68,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "figma-portal": "^0.11.0",
-    "ghinfo": "^3.0.2",
+    "ghinfo": "^3.0.3",
     "husky": "^7.0.4",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.5.1",

@@ -6,6 +6,7 @@
 .env
 .eslintignore
 .eslintrc
+.figma.icons.yml
 .figma.yml
 .ghinfo
 .gitattributes
