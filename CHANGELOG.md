@@ -5,6 +5,7 @@
 <details>
 <summary>Dev Dependencies</summary>
 
+- Added **[@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser)** with `^5.18.0`
 - Changed **[@sophty-ui/icons-shared-config](https://www.npmjs.com/package/@sophty-ui/icons-shared-config)** from `^1.0.5` to `^1.0.6`
 - Changed **[@tagproject/docs-shared-config](https://www.npmjs.com/package/@tagproject/docs-shared-config)** from `^1.0.1` to `^1.0.4`
 - Changed **[@tagproject/vscode-shared-config](https://www.npmjs.com/package/@tagproject/vscode-shared-config)** from `^1.2.2` to `^1.2.5`
