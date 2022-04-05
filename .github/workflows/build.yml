@@ -31,7 +31,6 @@ jobs:
           CONFIG=$(node ./.github/scripts/config.js | sed 's/ //g')
           echo "::set-output name=config::$CONFIG"
           echo $CONFIG
-
   build:
     name: Build
     needs: [ config ]
@@ -84,7 +83,6 @@ jobs:
           failure_count=$(curl -X GET -s -u $USER $URL | jq "$FILTER")
           echo "::set-output name=failure_count::$failure_count"
           echo Failure jobs count: $failure_count
-
       - if: ${{ steps.status.outputs.failure_count > 0 }}
         name: Fail
         run: exit 1
@@ -118,7 +116,6 @@ jobs:
           **Commit:** [${{ github.event.head_commit.id }}](${{ github.event.head_commit.url }})
           **Message:**
           `${{ github.event.head_commit.message }}`
-
     - name: Send error notification for pull_request
       if: ${{ contains(needs.*.result, 'failure') && github.event_name == 'pull_request' }}
       uses: sarisia/actions-status-discord@v1
@@ -135,7 +132,6 @@ jobs:
           **Title:** ${{ github.event.pull_request.title }} [#${{ github.event.pull_request.number }}](${{github.event.pull_request._links.html.href}})
           **Assignees:** `${{ join(github.event.pull_request.assignees.*.login, ', ') }}`
           **Labels:** `${{ join(github.event.pull_request.labels.*.name, ', ') }}`
-
     - name: Send success notification for pull_request
       if: ${{ !contains(needs.*.result, 'failure') && github.event_name == 'pull_request' }}
       uses: sarisia/actions-status-discord@v1
@@ -152,6 +148,3 @@ jobs:
           **Title:** ${{ github.event.pull_request.title }} [#${{ github.event.pull_request.number }}](${{github.event.pull_request._links.html.href}})
           **Assignees:** `${{ join(github.event.pull_request.assignees.*.login, ', ') }}`
           **Labels:** `${{ join(github.event.pull_request.labels.*.name, ', ') }}`
-
-
-
