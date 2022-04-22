@@ -52,7 +52,7 @@
     "@sophty-ui/icons-shared-config": "^1.0.7",
     "@tagproject/docs-shared-config": "^1.0.4",
     "@tagproject/vscode-shared-config": "^1.2.5",
-    "@types/react": "^17.0.43",
+    "@types/react": "^18.0.6",
     "@types/svg-parser": "^2.0.3",
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.18.0",
