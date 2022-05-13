@@ -51,7 +51,7 @@
   "devDependencies": {
     "@sophty-ui/icons-shared-config": "^1.0.7",
     "@tagproject/docs-shared-config": "^1.0.4",
-    "@tagproject/vscode-shared-config": "^1.2.5",
+    "@tagproject/vscode-shared-config": "^2.0.2",
     "@types/react": "^17.0.43",
     "@types/svg-parser": "^2.0.3",
     "@typescript-eslint/eslint-plugin": "^5.18.0",
