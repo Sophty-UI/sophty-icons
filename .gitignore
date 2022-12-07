@@ -9,13 +9,11 @@
 /.eslintcache
 /.eslintignore
 /.eslintrc
-/.figma.yml
 /.husky/
 /.prettierignore
 /.prettierrc
 /.vscode/
 /src/**/__generated__
-/src/icons
 /tsconfig.json
 coverage
 lib

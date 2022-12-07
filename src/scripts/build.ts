@@ -39,21 +39,21 @@ const renderTree = (node: Node | string): string => {
   if (typeof node === 'string') return node;
   if (!('properties' in node) || !node.tagName) return '';
 
-  const tag = node.tagName;
-  const props: [string, string | number | boolean][] = Object.entries(node.properties ?? {}).filter(
+  const { properties, tagName } = node;
+  const props: [string, string | number | boolean][] = Object.entries(properties ?? {}).filter(
     ([key]) => key !== 'fill'
   );
 
-  if (tag === 'svg') {
+  if (tagName === 'svg') {
     props.push(['fill', 'currentColor']);
     props.push(['aria-hidden', true]);
     props.push(['focusable', false]);
   }
 
-  return `<${tag} ${props
+  return `<${tagName} ${props
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([name, value]) => (value === true ? `${name}` : `${name}="${value.toString()}"`))
-    .join(' ')}>${node.children.map(child => renderTree(child)).join('')}</${tag}>`;
+    .join(' ')}>${node.children.map(child => renderTree(child)).join('')}</${tagName}>`;
 };
 
 void (async () => {
