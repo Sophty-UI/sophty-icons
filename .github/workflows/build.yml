@@ -39,7 +39,7 @@ jobs:
     name: Success build
     if: ${{ always() }}
     runs-on: ubuntu-latest
-    needs: [ build, coverage ]
+    needs: [ build ]
     steps:
       - id: status
         name: Load failure jobs count
