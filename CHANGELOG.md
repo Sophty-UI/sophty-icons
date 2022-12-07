@@ -5,7 +5,7 @@
 <details>
 <summary>Dev Dependencies</summary>
 
-- Changed **[@sophty-ui/icons-shared-config](https://www.npmjs.com/package/@sophty-ui/icons-shared-config)** from `^1.0.7` to `^1.1.1`
+- Changed **[@sophty-ui/icons-shared-config](https://www.npmjs.com/package/@sophty-ui/icons-shared-config)** from `^1.0.7` to `^1.1.2`
 - Changed **[@tagproject/docs-shared-config](https://www.npmjs.com/package/@tagproject/docs-shared-config)** from `^1.0.4` to `^1.1.2`
 - Changed **[@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin)** from `^5.18.0` to `^5.45.1`
 - Changed **[@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser)** from `^5.18.0` to `^5.45.1`
