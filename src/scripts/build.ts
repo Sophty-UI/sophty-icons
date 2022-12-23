@@ -62,12 +62,16 @@ void (async () => {
 
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
 
-  await Promise.all(
-    icons.map(({ name, tree }) =>
+  await Promise.all([
+    ...icons.map(({ name, tree }) =>
       fs.writeFile(
         path.join(OUTPUT_DIR, `${name}.tsx`),
         ICON_TEMPLATE.replace(/<%= name %>/gi, name).replace(/<%= component %>/gi, renderTree(tree))
       )
-    )
-  );
+    ),
+    fs.writeFile(
+      path.join(OUTPUT_DIR, 'index.ts'),
+      icons.map(({ name }) => `export { default as ${name} } from './${name}';`).join('\n')
+    ),
+  ]);
 })();
