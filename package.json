@@ -17,10 +17,6 @@
   ],
   "bugs": "https://github.com/Sophty-UI/sophty-icons/issues",
   "type": "module",
-  "exports": {
-    "./Icon": "./lib/components/Icon.js",
-    "./*": "./lib/components/__generated__/*.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sophty-UI/sophty-icons.git"
@@ -46,20 +42,20 @@
     "release": "npm-run-all prepare build lint generate"
   },
   "devDependencies": {
-    "@sophty-ui/icons-shared-config": "^1.1.2",
+    "@sophty-ui/icons-shared-config": "^1.1.4",
     "@tagproject/docs-shared-config": "^1.1.2",
     "@tagproject/vscode-shared-config": "^2.0.5",
     "@types/react": "^18.0.26",
     "@types/svg-parser": "^2.0.3",
-    "@typescript-eslint/eslint-plugin": "^5.45.1",
-    "@typescript-eslint/parser": "^5.45.1",
-    "camelcase": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
+    "camelcase": "^7.0.1",
     "changelog-guru": "4.0.9",
-    "cspell": "^6.17.0",
-    "eslint": "^8.29.0",
+    "cspell": "^6.18.0",
+    "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest": "^27.1.6",
+    "eslint-plugin-jest": "^27.1.7",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-optimize-regex": "^1.2.1",
     "eslint-plugin-promise": "^6.1.1",
@@ -72,7 +68,7 @@
     "rimraf": "^3.0.2",
     "svg-parser": "^2.0.4",
     "ts-node": "^10.9.1",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.4"
   },
   "peerDependencies": {
     "react": "18.x",

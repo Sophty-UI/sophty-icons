@@ -15,6 +15,7 @@
 /.vscode/
 /src/**/__generated__
 /tsconfig.json
+/tsconfig.lib.json
 coverage
 lib
 logs
