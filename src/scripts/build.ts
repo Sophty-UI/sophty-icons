@@ -3,7 +3,7 @@ import camelcase from 'camelcase';
 import { promises as fs } from 'fs';
 import path from 'path';
 // eslint-disable-next-line node/no-unpublished-import
-import { Node, parse } from 'svg-parser';
+import { ElementNode, Node, parse } from 'svg-parser';
 
 const INPUT_DIR = 'src/icons';
 const OUTPUT_DIR = 'src/components/__generated__';
@@ -15,40 +15,32 @@ import { ForwardedRef, forwardRef } from 'react';
 import Icon, { IIconProps } from '../Icon';
 
 const <%= name %> = (props: IIconProps, ref: ForwardedRef<HTMLSpanElement>) => (
-  <Icon
-    {...props}
-    ref={ref}
-    icon={
-      <%= component %>
-    }
-  />
+  <Icon {...props} ref={ref} aria-label="<%= aria %>" viewBox="<%= box %>">
+    <%= component %>
+  </Icon>
 );
 
 export default forwardRef<HTMLSpanElement, IIconProps>(<%= name %>);
 `;
 
-const parseIcon = async (fileName: string): Promise<{ name: string; tree: Node }> => {
+const parseIcon = async (
+  fileName: string
+): Promise<{ aria: string; box: string; children: (string | Node)[]; name: string }> => {
   const data = await fs.readFile(path.join(INPUT_DIR, fileName), 'utf-8');
-  const name = `${camelcase(path.basename(fileName, path.extname(fileName)), { pascalCase: true })}Icon`;
-  const [tree] = parse(data).children;
+  const basename = path.basename(fileName, path.extname(fileName));
+  const name = `${camelcase(basename, { pascalCase: true })}Icon`;
+  const aria = basename.toLowerCase();
+  const [node] = parse(data).children as [ElementNode];
 
-  return { name, tree };
+  return { name, children: node.children, aria, box: (node.properties?.viewBox ?? '0 0 24 24').toString() };
 };
 
-const renderTree = (node: Node | string): string => {
+const renderTree = (node: string | Node): string => {
   if (typeof node === 'string') return node;
   if (!('properties' in node) || !node.tagName) return '';
 
   const { properties, tagName } = node;
-  const props: [string, string | number | boolean][] = Object.entries(properties ?? {}).filter(
-    ([key]) => key !== 'fill'
-  );
-
-  if (tagName === 'svg') {
-    props.push(['fill', 'currentColor']);
-    props.push(['aria-hidden', true]);
-    props.push(['focusable', false]);
-  }
+  const props: [string, string | number | boolean][] = Object.entries(properties ?? {});
 
   return `<${tagName} ${props
     .sort(([a], [b]) => a.localeCompare(b))
@@ -63,10 +55,13 @@ void (async () => {
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
 
   await Promise.all([
-    ...icons.map(({ name, tree }) =>
+    ...icons.map(({ name, children, box, aria }) =>
       fs.writeFile(
         path.join(OUTPUT_DIR, `${name}.tsx`),
-        ICON_TEMPLATE.replace(/<%= name %>/gi, name).replace(/<%= component %>/gi, renderTree(tree))
+        ICON_TEMPLATE.replace(/<%= name %>/gi, name)
+          .replace(/<%= box %>/gi, box)
+          .replace(/<%= aria %>/gi, aria)
+          .replace(/<%= component %>/gi, children.map(renderTree).join(''))
       )
     ),
     fs.writeFile(
