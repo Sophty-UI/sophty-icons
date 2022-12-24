@@ -1,3 +1,3 @@
 export * from './components/__generated__';
 
-export { default as Icon } from './components/Icon';
+export { default as Icon, IIconProps } from './components/Icon';
