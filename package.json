@@ -47,7 +47,7 @@
     "release": "npm-run-all prepare build lint generate"
   },
   "devDependencies": {
-    "@sophty-ui/icons-shared-config": "^1.2.1",
+    "@sophty-ui/icons-shared-config": "^1.2.2",
     "@tagproject/docs-shared-config": "^1.1.2",
     "@tagproject/vscode-shared-config": "^2.0.5",
     "@types/react": "^18.0.26",
