@@ -19,8 +19,8 @@
   "types": "./lib/index.d.ts",
   "type": "module",
   "exports": {
-    ".": "./index.js",
-    "./theme.css": "./assets/theme.css"
+    ".": "./lib/index.js",
+    "./theme.css": "./lib/assets/theme.css"
   },
   "repository": {
     "type": "git",
@@ -47,7 +47,7 @@
     "release": "npm-run-all prepare build lint generate"
   },
   "devDependencies": {
-    "@sophty-ui/icons-shared-config": "^1.2.2",
+    "@sophty-ui/icons-shared-config": "^1.2.3",
     "@tagproject/docs-shared-config": "^1.1.2",
     "@tagproject/vscode-shared-config": "^2.0.5",
     "@types/react": "^18.0.26",
