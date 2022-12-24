@@ -15,7 +15,7 @@ import { ForwardedRef, forwardRef } from 'react';
 import Icon, { IIconProps } from '../Icon';
 
 const <%= name %> = (props: IIconProps, ref: ForwardedRef<HTMLSpanElement>) => (
-  <Icon {...props} ref={ref} aria-label="<%= aria %>" viewBox="<%= box %>">
+  <Icon {...props} ref={ref} aria-label="<%= aria %>" box="<%= box %>">
     <%= component %>
   </Icon>
 );
