@@ -39,7 +39,11 @@ const renderTree = (node: string | Node): string => {
   if (!('properties' in node) || !node.tagName) return '';
 
   const { properties, tagName } = node;
-  const props: [string, string | number | boolean][] = Object.entries(properties ?? {});
+  const props: [string, string | number | boolean][] = Object.entries(properties ?? {}).map(([name, value]) => {
+    if (name === 'fill') return [name, 'currentColor'];
+
+    return [name, value];
+  });
 
   return `<${tagName} ${props
     .sort(([a], [b]) => a.localeCompare(b))
