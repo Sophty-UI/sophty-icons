@@ -29,10 +29,9 @@ const parseIcon = async (
   const data = await fs.readFile(path.join(INPUT_DIR, fileName), 'utf-8');
   const basename = path.basename(fileName, path.extname(fileName));
   const name = `${camelcase(basename, { pascalCase: true })}Icon`;
-  const aria = basename.toLowerCase();
   const [node] = parse(data).children as [ElementNode];
 
-  return { name, children: node.children, aria, box: (node.properties?.viewBox ?? '0 0 24 24').toString() };
+  return { name, children: node.children, aria: basename, box: (node.properties?.viewBox ?? '0 0 24 24').toString() };
 };
 
 const renderTree = (node: string | Node): string => {
