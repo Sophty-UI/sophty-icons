@@ -54,7 +54,7 @@
     "@types/svg-parser": "^2.0.3",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
-    "camelcase": "^7.0.1",
+    "camelcase": "^8.0.0",
     "changelog-guru": "4.0.9",
     "copyfiles": "^2.4.1",
     "cspell": "^6.22.0",
