@@ -52,7 +52,7 @@
     "@tagproject/vscode-shared-config": "^2.0.6",
     "@types/react": "^18.0.27",
     "@types/svg-parser": "^2.0.3",
-    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^5.51.0",
     "camelcase": "^7.0.1",
     "changelog-guru": "4.0.9",
